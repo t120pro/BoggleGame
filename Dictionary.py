@@ -1,21 +1,20 @@
-class Dictionary():
-    dictionary = []
-    
-    def __init__(self):
-        pass
+_dictionary = []
 
-    def saveDictionary(self):
-        dict_file = open("webster_word_list.txt", "r")
-        Board.dictionary = dict_file.read().splitlines()
-        dict_file.close()
-    
-    def doesWordExist(self, word):
-        if word in Board.dictionary:
-            return True
-        else:
-            return False
-    
-    def addToWord(self, letter):
-        self._current_word.append(letter)
-    
+
+def import_dictionary():
+    dict_file = open("webster_word_list.txt", "r")
+    _dictionary = dict_file.read().splitlines()
+    dict_file.close()
+
+
+def does_word_exist(word):
+    if word in _dictionary:
+        return True
+    else:
+        return False
+
+
+def add_to_word(self, letter):
+    self._current_word.append(letter)
+
 

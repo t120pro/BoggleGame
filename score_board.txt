@@ -1,0 +1,8 @@
+name1~100
+name2~15
+name3~10
+Tehilla~8
+Tehilla~8
+Tehilla~8
+name4~3
+name5~1

@@ -1,31 +1,31 @@
-from Score import score
+from score import Score
 
-
-class ScoreBoard:
+class Score_Board:
 
     def __init__(self):
-        pass
-
-    def update_board(self, user_score):
+        #saving score_board.txt by creating a list of scores
         score_board = open("score_board.txt", "r")
         lines = score_board.read().splitlines()
+        self._high_scores = []
 
-        for line in lines:
+        for i in range(len(lines)):
+            line = str(lines[i]).split("~")
             name = line[0]
-            scr = line[1]
-            past_score = score(name, scr)
-
-            if user_score.compare_to(past_score) >= 0:
-                lines.add(score) #change it to put new score before past score
-                last_line = lines[lines.len - 1]
-                lines.remove(last_line)
-            break
-
+            score = line[1]
+            self._high_scores.append(Score(name, score))
+    
+    def get_high_scores(self):
+        return self._high_scores
+    
+    def update_board(self, user_score):
+        #inserting user's score into score board
+        for i in range(10):
+            if len(self._high_scores) <= i or user_score.compare_to(self._high_scores[i]) >= 0:
+                self._high_scores.insert(i, user_score)
+                break
+        
+        #saving new board to file
         score_board = open("score_board.txt", "w")
-        score_board.write(user_score + "\n")
+        for high_score in self._high_scores:
+            score_board.write(str(high_score) + "\n")
         score_board.close()
-
-    def view_score_board(self):
-        score_board = open("score_board.txt", "r")
-        scores = score_board.read().splitlines()
-        return scores

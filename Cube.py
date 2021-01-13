@@ -12,6 +12,7 @@ class Cube():
     
     def changeValue(self):
         self._value = random.choice(Cube.letters)
+        return self._value
         
     def __str__(self):
         return self._value

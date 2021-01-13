@@ -20,6 +20,8 @@ class Score:
     def get_name(self):
         return self._name
     
-    def add_points(word):
+    def add_points(self, word):
         if len(word) > 2:
             self._score += len(word)
+        else:
+            print("word must be 3 or more letters")

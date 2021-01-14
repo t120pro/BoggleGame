@@ -17,6 +17,14 @@ class Score_Board:
     def get_high_scores(self):
         return self._high_scores
     
+    def print_scores(self):
+        for i in range(10):
+            if i < len(self._high_scores):
+                score = self._high_scores[i]
+                print(str(score.get_score()) + " - " + score.get_name())
+        if len(self._high_scores) == 0:
+            print("No high scores yet. Play and be the first to get a high score")
+    
     def update_board(self, user_score):
         #inserting user's score into score board
         for i in range(10):

@@ -11,7 +11,4 @@ def does_word_exist(word):
         return True
     else:
         return False
-
-#should this method be here?
-def add_to_word(self, letter):
-    self._current_word.append(letter)
+    
